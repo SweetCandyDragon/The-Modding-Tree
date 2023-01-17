@@ -33,5 +33,18 @@ addLayer("p", {
     cost: new Decimal(1),
 
         },
+
+        12: {
+            title: "Point Boost 2",
+            description: "Triple your point gain.",
+            cost: new Decimal(2),
+
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"12" }, // Add formatting to the effect
+         },
+
+         
     },
 })
