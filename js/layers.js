@@ -32,10 +32,7 @@ addLayer("p", {
     title: "Point Boost",
     description: "x2 your point gain.",
     cost: new Decimal(1),
-    effect() {
-        return player[this.layer].points.add(2).pow(0.5)
-    },
-    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"1" }, // Add formatting to the effect
+    
         },
 
         2: {
@@ -52,7 +49,7 @@ addLayer("p", {
          3: {
             title: "Point Boost 3",
             description: "x4 your point gain.",
-            cost: new Decimal(2),
+            cost: new Decimal(3),
 
             effect() {
                 return player[this.layer].points.add(4).pow(0.15)
@@ -61,7 +58,7 @@ addLayer("p", {
 
             gainMult() {
                 let mult = new Decimal(1)
-                if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 3))
+                if (hasUpgrade('p', 3)) mult = mult.times(upgradeEffect('p', 3))
                 return mult
             },
          },
