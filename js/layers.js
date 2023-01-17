@@ -41,6 +41,6 @@ addLayer("p", {
                 return player[this.layer].points.add(2).pow(0.5)
             },
         },
-        etc
+        
     }
 })
