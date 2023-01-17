@@ -26,43 +26,21 @@ addLayer("p", {
     ],
     layerShown(){return true},
 
-    upgrades: {
-
+    buyables: {
         11: {
-    title: "Point Boost",
-    description: "x2 your point gain.",
-    cost: new Decimal(1),
-    
+            title: "Point Boost",
+            description: "x2 your point gain.",
+            cost(x) { return new Decimal(1).mul(x) },
+            display() { return "Blah" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect() {
+                return player[this.layer].points.add(2).pow(0.5)
+            },
         },
-
-        12: {
-            title: "Point Boost 2",
-            description: "x3 your point gain.",
-            cost: new Decimal(2),
-
-            effect() {
-                return player[this.layer].points.add(3).pow(0.5)
-            },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"2" }, // Add formatting to the effect
-         },
-
-         13: {
-            title: "Point Boost 3",
-            description: "x4 your point gain.",
-            cost: new Decimal(3),
-
-            effect() {
-                return player[this.layer].points.add(4).pow(0.15)
-            },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"3" }, // Add formatting to the effect
-
-            gainMult() {
-                let mult = new Decimal(1)
-                if (hasUpgrade('p', 3)) mult = mult.times(upgradeEffect('p', 3))
-                return mult
-            },
-         },
-
-         
-    },
+        etc
+    }
 })
