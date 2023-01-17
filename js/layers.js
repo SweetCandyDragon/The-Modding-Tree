@@ -29,20 +29,37 @@ addLayer("p", {
     upgrades: {
         11: {
     title: "Point Boost",
-    description: "Double your point gain.",
+    description: "x2 your point gain.",
     cost: new Decimal(1),
 
         },
 
         12: {
             title: "Point Boost 2",
-            description: "Triple your point gain.",
+            description: "x3 your point gain.",
             cost: new Decimal(2),
 
             effect() {
-                return player[this.layer].points.add(1).pow(0.5)
+                return player[this.layer].points.add(3).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"12" }, // Add formatting to the effect
+         },
+
+         13: {
+            title: "Point Boost 3",
+            description: "x4 your point gain.",
+            cost: new Decimal(2),
+
+            effect() {
+                return player[this.layer].points.add(4).pow(0.15)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"13" }, // Add formatting to the effect
+
+            gainMult() {
+                let mult = new Decimal(1)
+                if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
+                return mult
+            },
          },
 
          
