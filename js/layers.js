@@ -46,7 +46,7 @@ addLayer("p", {
              },
             effect() 
             {
-                return player[this.layer].buyables[this.id].pow(0.95).mul((buyableEffect('p', 23))).mul(player.cc.cookiebibleeffect).add(1)
+                return player[this.layer].buyables[this.id].pow(0.95).mul(player.cc.cookiebibleeffect).add(1)
             },
         },
     }
