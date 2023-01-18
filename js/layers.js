@@ -127,9 +127,9 @@ addLayer("rebirth", {
     position: 0, 
     row: 1,
     branches: ['prestige'],
-    layerShown() { return !hasupgrade('p', 16) ; player.r.unlocked},
+    layerShown() { return !hasUpgrade('p', 16) ; player.r.unlocked},
     increaseUnlockOrder: ['prestige'],
-    resource () {return player[this.layer].points},
+    resource () {return player.rebirth.points},
     color: "#0f52ba",
     type: "normal",
     requires: 10,
@@ -137,8 +137,9 @@ addLayer("rebirth", {
     baseAmount() {return player.prestige.points},
     exponent: 0.5,
     gainMult() { 
-        return mult
+
         mult = new Decimal(1)
+        return mult
         
     },
     startData() { return {
