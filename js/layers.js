@@ -40,8 +40,8 @@ addLayer("p", {
              display() 
              { // Everything else displayed in the buyable button after the title
                
-               return "Cost: " + format(data.resource) + " Prestige Points"
-               "Amount: " + player[this.layer].buyables[this.id] + format(data.effect) + " boost to Points";
+               return "Cost: " + format(player.resource) + " Prestige Points"
+               "Amount: " + player[this.layer].buyables[this.id] + format(player.resource) + " boost to Points";
              },
         }
     }
