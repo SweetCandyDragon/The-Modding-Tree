@@ -127,9 +127,9 @@ addLayer("r", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     row: 1,
     branches: ['prestige'],
-    layerShown() { return temp.r.paused ? false : player.r.unlocked},
+    layerShown() { return !hasupgrade('p', 16) ; player.r.unlocked},
     increaseUnlockOrder: ['prestige'],
-    resource () {return player[this.layer].points.equals(1) ? "rebirth" : "rebirths" },
+    resource () {return player[this.layer].points},
     color: "#0f52ba",
     type: "normal",
     requires: 10,
