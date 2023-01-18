@@ -43,7 +43,7 @@ addLayer("p", {
             cost: new Decimal(5),
 
             effect() {
-                return player[this.layer].points.add(6).mult(1)
+                return player[this.layer].points.add(6).times(1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"2" }, // Add formatting to the effect
          },
@@ -54,7 +54,7 @@ addLayer("p", {
             cost: new Decimal(25),
 
             effect() {
-                return player[this.layer].points.add(36).mult(1)
+                return player[this.layer].points.add(36).times(1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"3" }, // Add formatting to the effect
 
