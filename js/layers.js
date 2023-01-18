@@ -1,7 +1,7 @@
 //Prestige
 
-addLayer("p", {
-    name: "prestige", // This is optional, only used in a few places, If absent it just uses the layer id.
+addLayer("prestige", {
+    name: "Prestige", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
@@ -121,10 +121,10 @@ addLayer("p", {
 
 //rebirth
 
-addLayer("r", {
-    name: "rebirth", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "R", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+addLayer("rebirth", {
+    name: "Rebirth", 
+    symbol: "R", 
+    position: 0, 
     row: 1,
     branches: ['prestige'],
     layerShown() { return !hasupgrade('p', 16) ; player.r.unlocked},
@@ -136,7 +136,7 @@ addLayer("r", {
     baseResource: "prestige",
     baseAmount() {return player.prestige.points},
     exponent: 0.5,
-    gainMult() { // Calculate the multiplier for main currency from bonuses
+    gainMult() { 
         return mult
         mult = new Decimal(1)
         
