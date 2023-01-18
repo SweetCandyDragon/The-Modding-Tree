@@ -97,14 +97,14 @@ addLayer("p", {
 
     upgrades: {
 
-        11: {
+        21: {
     title: "1",
     description: "x2 your rebirth point gain.",
     cost: new Decimal(1),
     
         },
 
-        12: {
+        22: {
             title: "2",
             description: "x4 your rebirth point gain.",
             cost: new Decimal(5),
@@ -115,7 +115,7 @@ addLayer("p", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"2" }, // Add formatting to the effect
          },
 
-         13: {
+         23: {
             title: "3",
             description: "x6 your rebirth point gain.",
             cost: new Decimal(25),
