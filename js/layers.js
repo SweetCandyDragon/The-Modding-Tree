@@ -121,7 +121,35 @@ addLayer("p", {
 
 //rebirth
 
+addLayer("r", {
+    name: "rebirth", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "R", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    row: 1,
+    branches: ['prestige'],
+    layerShown() { return temp.r.paused ? false : player.r.unlocked},
+    increaseUnlockOrder: ['prestige'],
+    resource () {return player[this.layer].points.equals(1) ? "rebirth" : "rebirths" },
+    color: "#0f52ba",
+    type: "normal",
+    requires: 10,
+    baseResource: "prestige",
+    baseAmount() {return player.prestige.points},
+    exponent: 0.5,
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        return mult
+        mult = new Decimal(1)
+        
+    },
+    startData() { return {
+        unlocked: false,
+        points: new decimal(0),
+        prestige: new decimal(0)
+    }},
 
+    onPress(){if (canReset(this.layer)) doReset(this.layer)},
+
+})
 
 
 
