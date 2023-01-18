@@ -32,17 +32,16 @@ addLayer("p", {
             cost(x) { return new Decimal(1).mul(x) },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-                {
-                 player[this.layer].points = player[this.layer].points.sub(this.cost())
-                }
+                
             },
              display() 
              { // Everything else displayed in the buyable button after the title
                
-               return "Cost: " + format(data.cost) + " Prestige Points\n\
-               Amount: " + player[this.layer].buyables[this.id] + " \n\
-               x" + format(data.effect) + " boost to Points";
+               return "Cost: " + format(data.resource) + " Prestige Points"
+               "Amount: " + player[this.layer].buyables[this.id] + format(data.effect) + " boost to Points";
              },
         }
     }
