@@ -28,7 +28,7 @@ addLayer("p", {
 
     buyables: {
         11: {
-            cost(x) { return new ExpantaNum(20).pow(x.div(50)).mul(1) },
+            cost(x) { return new Decimal(1).mul(x) },
             title: "Point Boost #1",
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
