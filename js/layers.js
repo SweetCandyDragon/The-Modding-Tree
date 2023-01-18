@@ -73,13 +73,13 @@ addLayer("p", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new Decimal(0),
+		rebirth: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#0cd989",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "prestige points", // Name of prestige currency
     baseResource: "rebirth points", // Name of resource prestige is based on
-    baseAmount() {return player.rebirth_points}, // Get the current amount of baseResource
+    baseAmount() {return player.rebirth}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
