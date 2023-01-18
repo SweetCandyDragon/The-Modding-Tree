@@ -28,8 +28,8 @@ addLayer("p", {
 
     buyables: {
         11: {
-            cost(x) { return new Decimal(1).mul(x) },
             title: "Point Boost #1",
+            cost(x) { return new Decimal(1).mul(x) },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -46,7 +46,7 @@ addLayer("p", {
              },
             effect() 
             {
-                return player[this.layer].buyables[this.id].pow(0.95).mul(player.cc.cookiebibleeffect).add(1)
+                return player[this.layer].buyables[this.id].pow(0.95).mul.add(1)
             },
         },
     }
