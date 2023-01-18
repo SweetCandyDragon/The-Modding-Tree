@@ -134,7 +134,7 @@ addLayer("rebirth", {
     type: "normal",
     requires: 10,
     baseResource: "Prestige",
-    baseAmount() {return player.Prestige.points},
+    baseAmount() {return player.prestige.points},
     exponent: 0.5,
     gainMult() { 
 
