@@ -145,7 +145,7 @@ addLayer("rebirth", {
     startData() { return {
         unlocked: false,
         points: new decimal(0),
-        prestige: new decimal(0)
+
     }},
 
     onPress(){if (canReset(this.layer)) doReset(this.layer)},
