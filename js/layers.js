@@ -26,43 +26,28 @@ addLayer("p", {
     ],
     layerShown(){return true},
 
-    upgrades: {
-
+    buyables: {
         11: {
-    title: "Point Boost",
-    description: "x2 your point gain.",
-    cost: new Decimal(1),
-    
+            cost(x) { return new ExpantaNum(20).pow(x.div(50)).mul(1) },
+            title: "Point Boost #1",
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+                {
+                 player[this.layer].points = player[this.layer].points.sub(this.cost())
+                }
+            },
+             display() 
+             { // Everything else displayed in the buyable button after the title
+               let data = tmp[this.layer].buyables[this.id]
+               return "Cost: " + format(data.cost) + " Prestige Points\n\
+               Amount: " + player[this.layer].buyables[this.id] + " \n\
+               x" + format(data.effect) + " boost to Points";
+             },
+            effect() 
+            {
+                return player[this.layer].buyables[this.id].pow(0.95).mul((buyableEffect('p', 23))).mul(player.cc.cookiebibleeffect).add(1)
+            },
         },
-
-        12: {
-            title: "Point Boost 2",
-            description: "x3 your point gain.",
-            cost: new Decimal(2),
-
-            effect() {
-                return player[this.layer].points.add(3).pow(0.5)
-            },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"2" }, // Add formatting to the effect
-         },
-
-         13: {
-            title: "Point Boost 3",
-            description: "x4 your point gain.",
-            cost: new Decimal(3),
-
-            effect() {
-                return player[this.layer].points.add(4).pow(0.15)
-            },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"3" }, // Add formatting to the effect
-
-            gainMult() {
-                let mult = new Decimal(1)
-                if (hasUpgrade('p', 3)) mult = mult.times(upgradeEffect('p', 3))
-                return mult
-            },
-         },
-
-         
-    },
+    }
 })
