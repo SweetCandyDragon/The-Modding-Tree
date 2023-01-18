@@ -127,7 +127,7 @@ addLayer("rebirth", {
     position: 0, 
     row: 1,
     branches: ['prestige'],
-    layerShown() { return !hasUpgrade('p', 16) ; player.r.unlocked},
+    layerShown() { return !hasUpgrade('p', 16) ; player.rebirth.unlocked},
     increaseUnlockOrder: ['prestige'],
     resource () {return player.rebirth.points},
     color: "#0f52ba",
