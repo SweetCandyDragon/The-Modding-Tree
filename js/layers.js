@@ -30,10 +30,9 @@ addLayer("p", {
 
     buyables: {
         11: {
-            title: "x2 Point Gain",
-            cost(x) { return new Decimal(1).mul(x) },
-            display() { return "x3 your point gain.",
-         "Cost:"+ format(cost(x)), "Amount:" + addBuyables(this.layer, this.id, this,amount)},
+            title: "Point Boost",
+    description: "x2 your point gain.",
+    cost: new Decimal(1),
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
