@@ -45,7 +45,7 @@ addLayer("p", {
             effect() {
                 return player[this.layer].points.add(6).times(1)
             },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"2" }, // Add formatting to the effect
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
          },
 
          13: {
@@ -56,7 +56,7 @@ addLayer("p", {
             effect() {
                 return player[this.layer].points.add(36).times(1)
             },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"3" }, // Add formatting to the effect
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
 
             gainMult() {
                 let mult = new Decimal(1)
