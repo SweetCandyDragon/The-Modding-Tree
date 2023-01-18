@@ -60,7 +60,7 @@ addLayer("prestige", {
 
             gainMult() {
                 let mult = new Decimal(1)
-                if (hasUpgrade('p', 3)) mult = mult.times(upgradeEffect('p', 3))
+                if (hasUpgrade('prestige', 3)) mult = mult.times(upgradeEffect('prestige', 3))
                 return mult
             },
          },
@@ -77,7 +77,7 @@ addLayer("prestige", {
 
             gainMult() {
                 let mult = new Decimal(1)
-                if (hasUpgrade('p', 4)) mult = mult.times(upgradeEffect('p', 4))
+                if (hasUpgrade('prestige', 4)) mult = mult.times(upgradeEffect('prestige', 4))
                 return mult
             },
          },
@@ -94,7 +94,7 @@ addLayer("prestige", {
 
             gainMult() {
                 let mult = new Decimal(1)
-                if (hasUpgrade('p', 5)) mult = mult.times(upgradeEffect('p', 5))
+                if (hasUpgrade('prestige', 5)) mult = mult.times(upgradeEffect('p', 5))
                 return mult
             },
          },
@@ -111,7 +111,7 @@ addLayer("prestige", {
 
             gainMult() {
                 let mult = new Decimal(1)
-                if (hasUpgrade('p', 6)) mult = mult.times(upgradeEffect('p', 6))
+                if (hasUpgrade('prestige', 6)) mult = mult.times(upgradeEffect('prestige', 6))
                 return mult
             },
          },
@@ -127,14 +127,14 @@ addLayer("rebirth", {
     position: 0, 
     row: 1,
     branches: ['prestige'],
-    layerShown() { return !hasUpgrade('p', 16) ; player.rebirth.unlocked},
+    layerShown() { return !hasUpgrade('prestige', 16) ; player.rebirth.unlocked},
     increaseUnlockOrder: ['prestige'],
     resource () {return player.rebirth.points},
     color: "#0f52ba",
     type: "normal",
     requires: 10,
-    baseResource: "prestige",
-    baseAmount() {return player.prestige.points},
+    baseResource: "Prestige",
+    baseAmount() {return player.Prestige.points},
     exponent: 0.5,
     gainMult() { 
 
