@@ -52,7 +52,7 @@ addLayer("p", {
             cost: new Decimal(25),
 
             effect() {
-                return player[this.layer].points.add(4).pow(2.60)
+                return player[this.layer].points.add(4).pow(2.50)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"3" }, // Add formatting to the effect
 
