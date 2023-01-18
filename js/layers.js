@@ -98,6 +98,23 @@ addLayer("p", {
                 return mult
             },
          },
+
+         16: {
+            title: "6",
+            description: "x1679616 your point gain.",
+            cost: new Decimal(2500),
+
+            effect() {
+                return player[this.layer].points.add(2821109907456).times(1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+
+            gainMult() {
+                let mult = new Decimal(1)
+                if (hasUpgrade('p', 6)) mult = mult.times(upgradeEffect('p', 6))
+                return mult
+            },
+         },
          
     },
 })
