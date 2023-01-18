@@ -88,7 +88,7 @@ addLayer("p", {
             cost: new Decimal(500),
 
             effect() {
-                return player[this.layer].points.add(1,679,616).times(1)
+                return player[this.layer].points.add(1679616).times(1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
 
