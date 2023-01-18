@@ -39,7 +39,7 @@ addLayer("p", {
             },
              display() 
              { // Everything else displayed in the buyable button after the title
-               let data = tmp[this.layer].buyables[this.id]
+               
                return "Cost: " + format(data.cost) + " Prestige Points\n\
                Amount: " + player[this.layer].buyables[this.id] + " \n\
                x" + format(data.effect) + " boost to Points";
