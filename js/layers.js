@@ -44,10 +44,6 @@ addLayer("p", {
                Amount: " + player[this.layer].buyables[this.id] + " \n\
                x" + format(data.effect) + " boost to Points";
              },
-            effect() 
-            {
-                return player[this.layer].buyables[this.id].pow(0.95).mul.add(1)
-            },
-        },
+        }
     }
 })
